@@ -1,0 +1,12 @@
+SELECT 
+    c.first_name,
+    c.last_name,
+    b.nice_score,
+    ep.x_m,
+    ep.y_m
+FROM behavior b
+INNER JOIN children c ON b.child_id = c.id
+INNER JOIN elf_plan ep ON b.child_id = ep.child_id
+WHERE b.year = 2025
+ORDER BY b.nice_score DESC
+LIMIT 3;
